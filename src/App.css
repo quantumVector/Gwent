@@ -1,5 +1,7 @@
 .app-wrapper {
-  width: 100%;
-  min-height: 100vh;
-  background: rgb(219, 219, 219);
+  width: 1366px;
+  height: 768px;
+  margin: 0 auto;
+  background: url('./assets/canvas.png') no-repeat;
+  border: 5px solid rgb(128, 51, 0);
 }
