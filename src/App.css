@@ -4,4 +4,244 @@
   margin: 0 auto;
   background: url('./assets/canvas.png') no-repeat;
   border: 5px solid rgb(128, 51, 0);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.3fr 0px 2.7fr 0px 0.5fr 0px 0.5fr;
+  grid-template-columns: 1.3fr 2.7fr 0.5fr 0.5fr;
+  -ms-grid-rows: 1fr 0px 0.7fr 0px 0.7fr 0px 0.7fr 0px 1fr;
+  grid-template-rows: 1fr 0.7fr 0.7fr 0.7fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "EnemyLeader battlefield enemyGraveyard enemyDeck" "enemyInfo battlefield selectedCard selectedCard" "weatherCards battlefield selectedCard selectedCard" "userInfo battlefield selectedCard selectedCard" "userLeader battlefield userGraveyard userDeck";
+}
+
+.EnemyLeader {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: EnemyLeader;
+}
+
+.enemyInfo {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: enemyInfo;
+}
+
+.weatherCards {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: weatherCards;
+}
+
+.userInfo {
+  -ms-grid-row: 7;
+  -ms-grid-column: 1;
+  grid-area: userInfo;
+}
+
+.userLeader {
+  -ms-grid-row: 9;
+  -ms-grid-column: 1;
+  grid-area: userLeader;
+}
+
+.battlefield {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 9;
+  -ms-grid-column: 3;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 0px 1fr 0px 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1.2fr 0px 1.2fr 0px 0.7fr;
+  grid-template-rows: 1.2fr 1.2fr 0.7fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "enemySide enemySide enemySide" "userSide userSide userSide" "userHand userHand userHand";
+  grid-area: battlefield;
+}
+
+.enemySide {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.3fr 0px 0.7fr 0px 1.3fr 0px 1.3fr 0px 1.3fr;
+  grid-template-columns: 0.3fr 0.7fr 1.3fr 1.3fr 1.3fr;
+  -ms-grid-rows: 1fr 0px 1fr 0px 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "enemySiegePower enemyModifieSiege enemySiegeCards enemySiegeCards enemySiegeCards" "enemyRangedPower enemyModifieRanged enemyRangedCards enemyRangedCards enemyRangedCards" "enemyMeleePower enemyModifieMelee enemyMeleeCards enemyMeleeCards enemyMeleeCards";
+  grid-area: enemySide;
+}
+
+.enemyMeleeCards {
+  -ms-grid-row: 5;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: enemyMeleeCards;
+}
+
+.enemyRangedCards {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: enemyRangedCards;
+}
+
+.enemySiegeCards {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: enemySiegeCards;
+}
+
+.enemyModifieSiege {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: enemyModifieSiege;
+}
+
+.enemyModifieRanged {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: enemyModifieRanged;
+}
+
+.enemyModifieMelee {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: enemyModifieMelee;
+}
+
+.enemyMeleePower {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: enemyMeleePower;
+}
+
+.enemyRangedPower {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: enemyRangedPower;
+}
+
+.enemySiegePower {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: enemySiegePower;
+}
+
+.userSide {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.3fr 0px 0.7fr 0px 1.3fr 0px 1.3fr 0px 1.3fr;
+  grid-template-columns: 0.3fr 0.7fr 1.3fr 1.3fr 1.3fr;
+  -ms-grid-rows: 1fr 0px 1fr 0px 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "userMeleePower userModifieMelee userMeleeCards userMeleeCards userMeleeCards" "userRangedPower userModifierRanged userRangedCards userRangedCards userRangedCards" "userSiegePower userModifierSiege userSiegeCards userSiegeCards userSiegeCards";
+  grid-area: userSide;
+}
+
+.userModifierRanged {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: userModifierRanged;
+}
+
+.userModifieMelee {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: userModifieMelee;
+}
+
+.userModifierSiege {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: userModifierSiege;
+}
+
+.userMeleeCards {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: userMeleeCards;
+}
+
+.userRangedCards {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: userRangedCards;
+}
+
+.userSiegeCards {
+  -ms-grid-row: 5;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: userSiegeCards;
+}
+
+.userMeleePower {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: userMeleePower;
+}
+
+.userRangedPower {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: userRangedPower;
+}
+
+.userSiegePower {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: userSiegePower;
+}
+
+.userHand {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: userHand;
+}
+
+.enemyGraveyard {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: enemyGraveyard;
+}
+
+.userGraveyard {
+  -ms-grid-row: 9;
+  -ms-grid-column: 5;
+  grid-area: userGraveyard;
+}
+
+.enemyDeck {
+  -ms-grid-row: 1;
+  -ms-grid-column: 7;
+  grid-area: enemyDeck;
+}
+
+.userDeck {
+  -ms-grid-row: 9;
+  -ms-grid-column: 7;
+  grid-area: userDeck;
+}
+
+.selectedCard {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 3;
+  grid-area: selectedCard;
 }
