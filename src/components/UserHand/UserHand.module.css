@@ -1,0 +1,9 @@
+.userHand {
+  display: flex;
+  justify-content: center;
+  border: 2px solid green;
+  width: 100%;
+  height: 100%;
+  grid-area: userHand;
+  background-color: green;
+}

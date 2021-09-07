@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import './App.css';
 import ModalMessage from './components/ModalMessage/ModalMessage';
+import SliderContainer from './components/Slider/SliderContainer';
+import UserHand from './components/UserHand/UserHand';
 import { deployGame } from './redux/gameDeploymentReducer';
 
 class App extends Component {
@@ -15,6 +17,9 @@ class App extends Component {
       <div className="app-wrapper">
         {this.props.modalVisible &&
           <ModalMessage msg={this.props.modalMessage} />
+        }
+        {this.props.sliderVisible &&
+          <SliderContainer state={this.props.state} />
         }
         <div className="EnemyLeader"></div>
         <div className="enemyInfo"></div>
@@ -44,7 +49,9 @@ class App extends Component {
             <div className="userRangedPower"></div>
             <div className="userSiegePower"></div>
           </div>
-          <div className="userHand"></div>
+          {this.props.userHand &&
+            <UserHand userHand={this.props.userHand} />
+          }
         </div>
         <div className="enemyGraveyard"></div>
         <div className="userGraveyard"></div>
@@ -59,6 +66,8 @@ class App extends Component {
 const mapStateToProps = (state) => ({
   modalVisible: state.modal.modalVisible,
   modalMessage: state.modal.modalMessage,
+  sliderVisible: state.slider.sliderVisible,
+  userHand: state.decks.userHand,
 });
 
 export default compose(

@@ -1,4 +1,5 @@
 .app-wrapper {
+  position: relative;
   width: 1366px;
   height: 768px;
   margin: 0 auto;

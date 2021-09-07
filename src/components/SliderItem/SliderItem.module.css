@@ -1,0 +1,12 @@
+.item {
+  margin: 0 30px;
+  border: 4px solid rgb(204, 44, 44);
+  height: 350px;
+  min-width: 255px;
+  color: white;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: rgb(204, 44, 44);
+}
