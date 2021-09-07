@@ -2,9 +2,20 @@ import React from 'react';
 import SliderItem from '../SliderItem/SliderItem';
 import classes from './Slider.module.css';
 
-const Slider = ({ increaseNumberReplacedCards, replacedCardsNumber,
-  hideSlider, decks, updateUserCards }) => {
-  if (replacedCardsNumber === 2) hideSlider();
+const Slider = ({ move, increaseNumberReplacedCards, replacedCardsNumber,
+  hideSlider, decks, updateUserCards, showModal }) => {
+
+  if (replacedCardsNumber === 2) {
+    hideSlider();
+    showModal('Начало раунда');
+
+    let message;
+
+    if (move === 'enemy') message = 'Ход противника';
+    if (move === 'user') message = 'Ваш ход';
+
+    setTimeout(() => showModal(message), 2000);
+  }
 
   const cards = decks.userHand.map(item => {
     return <SliderItem decks={decks}

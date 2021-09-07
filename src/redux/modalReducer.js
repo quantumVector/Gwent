@@ -2,6 +2,7 @@ import { setSlider } from "./sliderReducer";
 
 const SET_FIRST_MODAL = 'gwent/modal/SET_FIRST_MODAL';
 const HIDE_MODAL = 'gwent/modal/HIDE_MODAL';
+const SHOW_MODAL = 'gwent/modal/SHOW_MODAL';
 
 const initialState = {
   modalMessage: null,
@@ -22,6 +23,13 @@ const modalReducer = (state = initialState, action) => {
         ...state,
         modalMessage: null,
         modalVisible: false
+      }
+    }
+    case 'gwent/modal/SHOW_MODAL': {
+      return {
+        ...state,
+        modalMessage: action.message,
+        modalVisible: true
       }
     }
     default:
@@ -46,5 +54,15 @@ export const setModal = (resultDraw) => (dispatch) => {
     dispatch(setSlider());
   }, 2000);
 }
+
+export const modalControler = (message) => (dispatch) => {
+  dispatch(showModal(message));
+
+  setTimeout(() => dispatch(hideModal()), 2000);
+}
+
+export const showModal = (message) => (
+  { type: SHOW_MODAL, message }
+)
 
 export default modalReducer;
