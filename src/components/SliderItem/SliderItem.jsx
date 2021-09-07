@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './SliderItem.module.css';
 
 const SliderItem = ({ increaseNumberReplacedCards, decks, title,
-  power, id, updateUserCards }) => {
+  power, type, ability, img, id, updateUserCards }) => {
 
   const onSelectCard = e => {
     const getRandomCardFromDeck = () => {
@@ -16,6 +16,9 @@ const SliderItem = ({ increaseNumberReplacedCards, decks, title,
       if (card.id === replaceableСardId) {
         card.title = newCard.title;
         card.power = newCard.power;
+        card.type = newCard.type;
+        card.ability = newCard.ability;
+        card.img = newCard.img;
         card.id = newCard.id;
       }
 
@@ -30,11 +33,17 @@ const SliderItem = ({ increaseNumberReplacedCards, decks, title,
   }
 
   return (
-    <div className={classes.item}
+    <img className={classes.item}
       onDoubleClick={onSelectCard}
       title={title}
       power={power}
-      id={id}>{power}</div>
+      type={type}
+      ability={ability}
+      img={img}
+      id={id}
+      src={img}
+      alt={title}
+    />
   )
 }
 

@@ -1,9 +1,11 @@
 import React from 'react';
 import classes from './UserHandItem.module.css';
 
-const UserHandItem = ({ power }) => {
+const UserHandItem = ({ title, img }) => {
   return (
-    <div className={classes.item}>{power}</div>
+    <div className={classes.item}>
+      <img className={classes.img} src={img} alt={title} />
+    </div>
   )
 }
 

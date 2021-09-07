@@ -1,12 +1,12 @@
 .item {
-  margin: 0 30px;
+  margin: 0 5px;
   border: 4px solid rgb(204, 44, 44);
-  height: 350px;
-  min-width: 255px;
+  min-width: 196px;
   color: white;
   cursor: pointer;
+  border-radius: 25px;
 }
 
 .item:hover {
-  background-color: rgb(204, 44, 44);
+  border: 4px solid rgb(10, 190, 64);
 }

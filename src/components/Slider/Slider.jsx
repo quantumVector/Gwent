@@ -23,6 +23,9 @@ const Slider = ({ move, increaseNumberReplacedCards, replacedCardsNumber,
       key={item.id}
       title={item.title}
       power={item.power}
+      type={item.type}
+      ability={item.ability}
+      img={item.img}
       id={item.id}
       updateUserCards={updateUserCards} />
   });

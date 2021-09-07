@@ -4,7 +4,7 @@ import classes from './UserHand.module.css';
 
 const UserHand = ({ userHand }) => {
   const cards = userHand.map(item => {
-    return <UserHandItem power={item.title} id={item.id} key={item.id} />
+    return <UserHandItem key={item.id} title={item.title} img={item.img} />
   });
 
   return (
