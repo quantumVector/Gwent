@@ -1,30 +1,30 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Slider from './Slider';
-import { hideSlider, increaseNumberReplacedCards } from '../../redux/sliderReducer';
-import { updateUserCards } from '../../redux/decksReducer';
+import { hideSlider, increaseCounter } from '../../redux/sliderReducer';
+import { replaceСard } from '../../redux/decksReducer';
 import { modalControler } from '../../redux/modalReducer';
 
 
 const mapStateToProps = (state) => ({
   move: state.deployment.move,
   decks: state.decks,
-  replacedCardsNumber: state.slider.replacedCardsNumber,
+  counter: state.slider.counter,
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    increaseNumberReplacedCards: () => {
-      dispatch(increaseNumberReplacedCards());
-    },
     hideSlider: () => {
       dispatch(hideSlider());
     },
-    updateUserCards: (cards, deck) => {
-      dispatch(updateUserCards(cards, deck));
+    replaceСard: (cardId) => {
+      dispatch(replaceСard(cardId));
     },
     showModal: (message) => {
       dispatch(modalControler(message));
+    },
+    increaseCounter: () => {
+      dispatch(increaseCounter())
     }
   }
 }

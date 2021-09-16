@@ -1,10 +1,34 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import classes from './SliderItem.module.css';
 
-const SliderItem = ({ increaseNumberReplacedCards, decks, title,
-  power, type, ability, img, id, updateUserCards }) => {
+const SliderItem = (props) => {
 
   const onSelectCard = e => {
+    props.replaceСard(e.target.attributes['card-id'].value);
+    props.increaseCounter();
+  }
+
+  return (
+    <img className={classes.item}
+      onDoubleClick={onSelectCard}
+      title={props.title}
+      power={props.power}
+      type={props.type}
+      ability={props.ability}
+      img={props.img}
+      card-id={props.id}
+      src={props.img}
+      alt={props.title}
+    />
+  )
+}
+
+export default SliderItem;
+
+
+
+
+/* const onSelectCard = e => {
     const getRandomCardFromDeck = () => {
       const randomInt = Math.floor(Math.random() * decks.userDeck.length);
       return decks.userDeck[randomInt];
@@ -30,21 +54,4 @@ const SliderItem = ({ increaseNumberReplacedCards, decks, title,
 
     updateUserCards(modifiedUserHand, modifiedUserDeck);
     increaseNumberReplacedCards();
-  }
-
-  return (
-    <img className={classes.item}
-      onDoubleClick={onSelectCard}
-      title={title}
-      power={power}
-      type={type}
-      ability={ability}
-      img={img}
-      id={id}
-      src={img}
-      alt={title}
-    />
-  )
-}
-
-export default SliderItem;
+  } */

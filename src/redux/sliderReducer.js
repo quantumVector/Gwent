@@ -1,10 +1,10 @@
 const SET_SLIDER = 'gwent/slider/SET_SLIDER';
-const INCREASE_NUMBER_REPLACED_CARDS = 'gwent/slider/INCREASE_NUMBER_REPLACED_CARDS';
+const INCREASE_COUNTER = 'gwent/slider/INCREASE_COUNTER';
 const HIDE_SLIDER = 'gwent/slider/HIDE_SLIDER';
 
 const initialState = {
   sliderVisible: false,
-  replacedCardsNumber: 0,
+  counter: 0,
 };
 
 const sliderReducer = (state = initialState, action) => {
@@ -14,11 +14,10 @@ const sliderReducer = (state = initialState, action) => {
         ...state,
         sliderVisible: true,
       }
-    case 'gwent/slider/INCREASE_NUMBER_REPLACED_CARDS':
-      console.log('here')
+    case 'gwent/slider/INCREASE_COUNTER':
       return {
         ...state,
-        replacedCardsNumber: state.replacedCardsNumber + 1,
+        counter: state.counter + 1,
       }
     case 'gwent/slider/HIDE_SLIDER':
       return {
@@ -34,8 +33,8 @@ export const setSlider = () => (
   { type: SET_SLIDER }
 )
 
-export const increaseNumberReplacedCards = () => (
-  { type: INCREASE_NUMBER_REPLACED_CARDS }
+export const increaseCounter = () => (
+  { type: INCREASE_COUNTER }
 )
 
 export const hideSlider = () => (

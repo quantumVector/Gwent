@@ -2,10 +2,10 @@ import React from 'react';
 import SliderItem from '../SliderItem/SliderItem';
 import classes from './Slider.module.css';
 
-const Slider = ({ move, increaseNumberReplacedCards, replacedCardsNumber,
-  hideSlider, decks, updateUserCards, showModal }) => {
+const Slider = ({ move, counter, hideSlider, decks,
+  replaceСard, showModal, increaseCounter }) => {
 
-  if (replacedCardsNumber === 2) {
+  if (counter === 2) {
     hideSlider();
     showModal('Начало раунда');
 
@@ -18,8 +18,7 @@ const Slider = ({ move, increaseNumberReplacedCards, replacedCardsNumber,
   }
 
   const cards = decks.userHand.map(item => {
-    return <SliderItem decks={decks}
-      increaseNumberReplacedCards={increaseNumberReplacedCards}
+    return <SliderItem
       key={item.id}
       title={item.title}
       power={item.power}
@@ -27,7 +26,8 @@ const Slider = ({ move, increaseNumberReplacedCards, replacedCardsNumber,
       ability={item.ability}
       img={item.img}
       id={item.id}
-      updateUserCards={updateUserCards} />
+      replaceСard={replaceСard}
+      increaseCounter={increaseCounter} />
   });
 
   return (

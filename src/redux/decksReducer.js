@@ -3,7 +3,7 @@ import userDeck from "./decks/userDeck";
 
 const SET_SHUFFLED_DECKS = 'gwent/gameDeployment/SET_SHUFFLED_DECKS';
 const SET_HANDS = 'gwent/gameDeployment/SET_HANDS';
-const UPDATE_USER_CARDS = 'gwent/gameDeployment/UPDATE_USER_CARDS';
+const REPLACE_CARD = 'gwent/gameDeployment/REPLACE_CARD';
 
 const initialState = {
   enemyDeck: enemyDeck,
@@ -30,11 +30,29 @@ const decksReducer = (state = initialState, action) => {
         userDeck: [...state.userDeck.reverse().slice(10).reverse()],
       }
     }
-    case 'gwent/gameDeployment/UPDATE_USER_CARDS': {
+    case 'gwent/gameDeployment/REPLACE_CARD': {
+      const cardFromHand = state.userHand.find(card => card.id === action.cardId);
+      const cloneUserDeck = JSON.parse(JSON.stringify(state.userDeck));
+      const cardFromDeck = cloneUserDeck.pop();
+      const cloneUserHand = JSON.parse(JSON.stringify(state.userHand));
+
+      cloneUserHand.forEach(card => {
+        if (card.id === cardFromHand.id) {
+          card.title = cardFromDeck.title;
+          card.power = cardFromDeck.power;
+          card.type = cardFromDeck.type;
+          card.ability = cardFromDeck.ability;
+          card.img = cardFromDeck.img;
+          card.id = cardFromDeck.id;
+        }
+      });
+
+      cloneUserDeck.push(cardFromHand);
+
       return {
         ...state,
-        userHand: action.hand,
-        userDeck: action.deck,
+        userHand: cloneUserHand,
+        userDeck: cloneUserDeck,
       }
     }
     default:
@@ -69,8 +87,8 @@ const shuffle = (deck) => {
   return shuffledArray;
 };
 
-export const updateUserCards = (hand, deck) => (
-  { type: UPDATE_USER_CARDS, hand, deck }
+export const replaceСard = (cardId) => (
+  { type: REPLACE_CARD, cardId }
 )
 
 export default decksReducer;
