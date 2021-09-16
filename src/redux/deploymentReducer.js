@@ -1,8 +1,8 @@
 import { installDecks } from "./decksReducer";
-import { setModal } from "./modalReducer";
+import { setStartModal } from "./modalReducer";
 
-const DEPLOYMENT_SUCCESS = 'gwent/gameDeployment/DEPLOYMENT_SUCCESS';
-const SET_MOVE = 'gwent/gameDeployment/SET_MOVE';
+const DEPLOYMENT_SUCCESS = 'gwent/deployment/DEPLOYMENT_SUCCESS';
+const SET_MOVE = 'gwent/deployment/SET_MOVE';
 
 const initialState = {
   gameDeployed: false,
@@ -11,13 +11,13 @@ const initialState = {
 
 const gameDeploymentReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'gwent/gameDeployment/DEPLOYMENT_SUCCESS': {
+    case 'gwent/deployment/DEPLOYMENT_SUCCESS': {
       return {
         ...state,
         gameDeployed: true,
       }
     }
-    case 'gwent/gameDeployment/SET_MOVE': {
+    case 'gwent/deployment/SET_MOVE': {
       return {
         ...state,
         move: action.move,
@@ -38,9 +38,13 @@ export const setMove = (move) => (
 
 export const deployGame = () => (dispatch) => {
   const resultDraw = draw();
+  let message;
+
+  if (resultDraw === 'user') message='Вы делаете ход первым';
+  if (resultDraw === 'enemy') message='Противник ходит первым';
 
   dispatch(setMove(resultDraw));
-  dispatch(setModal(resultDraw));
+  dispatch(setStartModal(message))
   dispatch(installDecks());
   dispatch(deploymentSuccess());
 }

@@ -6,8 +6,8 @@ const Slider = ({ move, counter, hideSlider, decks,
   replaceСard, showModal, increaseCounter }) => {
 
   if (counter === 2) {
-    hideSlider();
-    showModal('Начало раунда');
+    /* hideSlider();
+    showModal('Начало раунда'); */
 
     let message;
 

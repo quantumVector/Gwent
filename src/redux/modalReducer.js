@@ -1,35 +1,35 @@
 import { setSlider } from "./sliderReducer";
 
-const SET_FIRST_MODAL = 'gwent/modal/SET_FIRST_MODAL';
+const SET_START_MODAL = 'gwent/modal/SET_START_MODAL';
 const HIDE_MODAL = 'gwent/modal/HIDE_MODAL';
 const SHOW_MODAL = 'gwent/modal/SHOW_MODAL';
 
 const initialState = {
-  modalMessage: null,
-  modalVisible: false,
+  message: null,
+  active: false,
 };
 
 const modalReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'gwent/modal/SET_FIRST_MODAL': {
+    case 'gwent/modal/SET_START_MODAL': {
       return {
         ...state,
-        modalMessage: action.message,
-        modalVisible: true
+        message: action.message,
+        active: true
       }
     }
     case 'gwent/modal/HIDE_MODAL': {
       return {
         ...state,
-        modalMessage: null,
-        modalVisible: false
+        message: null,
+        active: false
       }
     }
     case 'gwent/modal/SHOW_MODAL': {
       return {
         ...state,
-        modalMessage: action.message,
-        modalVisible: true
+        message: action.message,
+        active: true
       }
     }
     default:
@@ -37,23 +37,13 @@ const modalReducer = (state = initialState, action) => {
   }
 }
 
-export const setFirstModal = (message) => (
-  { type: SET_FIRST_MODAL, message }
+export const setStartModal = (message) => (
+  { type: SET_START_MODAL, message }
 )
 
 export const hideModal = () => (
   { type: HIDE_MODAL }
 )
-
-export const setModal = (resultDraw) => (dispatch) => {
-  if (resultDraw === 'user') dispatch(setFirstModal('Вы делаете ход первым'));
-  if (resultDraw === 'enemy') dispatch(setFirstModal('Противник ходит первым'));
-
-  setTimeout(() => {
-    dispatch(hideModal());
-    dispatch(setSlider());
-  }, 2000);
-}
 
 export const modalControler = (message) => (dispatch) => {
   dispatch(showModal(message));

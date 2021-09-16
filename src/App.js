@@ -2,10 +2,11 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import './App.css';
-import ModalMessage from './components/ModalMessage/ModalMessage';
+import ModalMessageContainer from './components/ModalMessage/ModalMessageContainer';
 import SliderContainer from './components/Slider/SliderContainer';
 import UserHand from './components/UserHand/UserHand';
-import { deployGame } from './redux/gameDeploymentReducer';
+import { deployGame } from './redux/deploymentReducer';
+import { hideModal } from './redux/modalReducer';
 
 class App extends Component {
   componentDidMount() {
@@ -15,9 +16,6 @@ class App extends Component {
   render() {
     return (
       <div className="app-wrapper">
-        {this.props.modalVisible &&
-          <ModalMessage msg={this.props.modalMessage} />
-        }
         {this.props.sliderVisible &&
           <SliderContainer state={this.props.state} />
         }
@@ -58,19 +56,18 @@ class App extends Component {
         <div className="enemyDeck"></div>
         <div className="userDeck"></div>
         <div className="selectedCard"></div>
+        <ModalMessageContainer state={this.props.state} />
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  modalVisible: state.modal.modalVisible,
-  modalMessage: state.modal.modalMessage,
   sliderVisible: state.slider.sliderVisible,
   userHand: state.decks.userHand,
 });
 
 export default compose(
-  connect(mapStateToProps, { deployGame })
+  connect(mapStateToProps, { deployGame, hideModal })
 )(App);
 

@@ -1,12 +1,12 @@
 import { applyMiddleware, createStore, combineReducers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import decksReducer from './decksReducer';
-import gameDeploymentReducer from './gameDeploymentReducer';
+import deploymentReducer from './deploymentReducer';
 import modalReducer from './modalReducer';
 import sliderReducer from './sliderReducer';
 
 const reducers = combineReducers({
-  deployment: gameDeploymentReducer,
+  deployment: deploymentReducer,
   modal: modalReducer,
   slider: sliderReducer,
   decks: decksReducer,
