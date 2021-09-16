@@ -59,8 +59,7 @@ class App extends Component {
         <div className="enemyDeck"></div>
         <div className="userDeck"></div>
         <div className="selectedCard"></div>
-        {this.props.userHand &&
-          <ModalMessageContainer state={this.props.state} />}
+        <ModalMessageContainer state={this.props.state} />
       </div>
     )
   }

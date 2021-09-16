@@ -1,5 +1,5 @@
 import { installDecks } from "./decksReducer";
-import { setStartModal } from "./modalReducer";
+import { setModal } from "./modalReducer";
 
 const DEPLOYMENT_SUCCESS = 'gwent/deployment/DEPLOYMENT_SUCCESS';
 const SET_MOVE = 'gwent/deployment/SET_MOVE';
@@ -44,7 +44,7 @@ export const deployGame = () => (dispatch) => {
   if (resultDraw === 'enemy') message='Противник ходит первым';
 
   dispatch(setMove(resultDraw));
-  dispatch(setStartModal(message))
+  dispatch(setModal(message))
   dispatch(installDecks());
   dispatch(deploymentSuccess());
 }

@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import Slider from './Slider';
 import { hideSlider, increaseCounter } from '../../redux/sliderReducer';
 import { replaceСard } from '../../redux/decksReducer';
-import { modalControler } from '../../redux/modalReducer';
+/* import { modalControler } from '../../redux/modalReducer'; */
 
 
 const mapStateToProps = (state) => ({
@@ -20,9 +20,9 @@ const mapDispatchToProps = (dispatch) => {
     replaceСard: (cardId) => {
       dispatch(replaceСard(cardId));
     },
-    showModal: (message) => {
+    /* showModal: (message) => {
       dispatch(modalControler(message));
-    },
+    }, */
     increaseCounter: () => {
       dispatch(increaseCounter())
     }
