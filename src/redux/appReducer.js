@@ -5,7 +5,7 @@ const DEPLOYMENT_SUCCESS = 'gwent/deployment/DEPLOYMENT_SUCCESS';
 const SET_MOVE = 'gwent/deployment/SET_MOVE';
 
 const initialState = {
-  gameDeployed: false,
+  deploymentSuccess: false,
   move: null,
 };
 
@@ -14,7 +14,7 @@ const gameDeploymentReducer = (state = initialState, action) => {
     case 'gwent/deployment/DEPLOYMENT_SUCCESS': {
       return {
         ...state,
-        gameDeployed: true,
+        deploymentSuccess: true,
       }
     }
     case 'gwent/deployment/SET_MOVE': {

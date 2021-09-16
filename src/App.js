@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import './App.css';
 import ModalMessageContainer from './components/ModalMessage/ModalMessageContainer';
+import Preloader from './components/Preloader/Preloader';
 import SliderContainer from './components/Slider/SliderContainer';
-import UserHand from './components/UserHand/UserHand';
-import { deployGame } from './redux/deploymentReducer';
+import UserHandContainer from './components/UserHand/UserHandContainer';
+import { deployGame } from './redux/appReducer';
 import { hideModal } from './redux/modalReducer';
 
 class App extends Component {
@@ -14,6 +15,10 @@ class App extends Component {
   }
 
   render() {
+    if (!this.props.deploymentSuccess) {
+      return <Preloader />
+    }
+
     return (
       <div className="app-wrapper">
         {this.props.sliderVisible &&
@@ -47,24 +52,24 @@ class App extends Component {
             <div className="userRangedPower"></div>
             <div className="userSiegePower"></div>
           </div>
-          {this.props.userHand &&
-            <UserHand userHand={this.props.userHand} />
-          }
+          <UserHandContainer state={this.props.state} />
         </div>
         <div className="enemyGraveyard"></div>
         <div className="userGraveyard"></div>
         <div className="enemyDeck"></div>
         <div className="userDeck"></div>
         <div className="selectedCard"></div>
-        <ModalMessageContainer state={this.props.state} />
+        {this.props.userHand &&
+          <ModalMessageContainer state={this.props.state} />}
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  sliderVisible: state.slider.sliderVisible,
-  userHand: state.decks.userHand,
+  /* sliderVisible: state.slider.sliderVisible, */
+  deploymentSuccess: state.app.deploymentSuccess,
+  userHand: state.decks.userHand
 });
 
 export default compose(
