@@ -11,7 +11,7 @@ const ModalMessage = ({ active, message, hideModal }) => {
     setTimeout(() => {
       setModalActive(false);
       hideModal();
-    }, 2000);
+    }, 3000);
   }, [active, hideModal]);
 
   return (

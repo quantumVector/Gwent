@@ -52,7 +52,7 @@ const decksReducer = (state = initialState, action) => {
       return {
         ...state,
         userHand: cloneUserHand,
-        userDeck: cloneUserDeck,
+        userDeck: shuffle(cloneUserDeck),
       }
     }
     default:

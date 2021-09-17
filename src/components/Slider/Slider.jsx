@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SliderItem from '../SliderItem/SliderItem';
 import classes from './Slider.module.css';
+import cn from "classnames";
 
-const Slider = ({ move, counter, hideSlider, decks,
-  replaceСard, showModal, increaseCounter }) => {
+const Slider = ({ move, active, counter, setModal, decks, replaceСard, increaseCounter }) => {
+  const [sliderActive, setSliderActive] = useState(false);
+  let message;
 
-  if (counter === 2) {
-    /* hideSlider();
-    showModal('Начало раунда'); */
+  if (move === 'enemy') message = 'Ход противника';
+  if (move === 'user') message = 'Ваш ход';
 
-    let message;
+  useEffect(() => {
+    if (active) setSliderActive(true);
+    if (counter === 2) {
+      setSliderActive(false);
+      setModal('Начало раунда');
+      setTimeout(() => { setModal(message) }, 3100);
+    }
 
-    if (move === 'enemy') message = 'Ход противника';
-    if (move === 'user') message = 'Ваш ход';
-
-    setTimeout(() => showModal(message), 2000);
-  }
+  }, [active, counter, setModal, move, message]);
 
   const cards = decks.userHand.map(item => {
     return <SliderItem
@@ -31,8 +34,8 @@ const Slider = ({ move, counter, hideSlider, decks,
   });
 
   return (
-    <div className={classes.wrap}>
-      <div className={classes.slider}>
+    <div className={cn(classes.slider, { [classes.active]: sliderActive })}>
+      <div className={classes.wrap}>
         {cards}
       </div>
     </div>

@@ -1,5 +1,3 @@
-import { setSlider } from "./sliderReducer";
-
 const SET_MODAL = 'gwent/modal/SET_MODAL';
 const HIDE_MODAL = 'gwent/modal/HIDE_MODAL';
 
@@ -36,12 +34,5 @@ export const setModal = (message) => (
 export const hideModal = () => (
   { type: HIDE_MODAL }
 )
-
-/* export const modalControler = (message) => (dispatch) => {
-  dispatch(showModal(message));
-
-  setTimeout(() => dispatch(hideModal()), 2000);
-} */
-
 
 export default modalReducer;

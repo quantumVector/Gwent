@@ -21,9 +21,6 @@ class App extends Component {
 
     return (
       <div className="app-wrapper">
-        {this.props.sliderVisible &&
-          <SliderContainer state={this.props.state} />
-        }
         <div className="EnemyLeader"></div>
         <div className="enemyInfo"></div>
         <div className="weatherCards"></div>
@@ -60,15 +57,14 @@ class App extends Component {
         <div className="userDeck"></div>
         <div className="selectedCard"></div>
         <ModalMessageContainer state={this.props.state} />
+        <SliderContainer state={this.props.state} />
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  /* sliderVisible: state.slider.sliderVisible, */
-  deploymentSuccess: state.app.deploymentSuccess,
-  userHand: state.decks.userHand
+  deploymentSuccess: state.app.deploymentSuccess
 });
 
 export default compose(

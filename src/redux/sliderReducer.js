@@ -1,10 +1,9 @@
 const SET_SLIDER = 'gwent/slider/SET_SLIDER';
 const INCREASE_COUNTER = 'gwent/slider/INCREASE_COUNTER';
-const HIDE_SLIDER = 'gwent/slider/HIDE_SLIDER';
 
 const initialState = {
-  sliderVisible: false,
   counter: 0,
+  active: false,
 };
 
 const sliderReducer = (state = initialState, action) => {
@@ -12,17 +11,13 @@ const sliderReducer = (state = initialState, action) => {
     case 'gwent/slider/SET_SLIDER':
       return {
         ...state,
-        sliderVisible: true,
+        active: true,
       }
     case 'gwent/slider/INCREASE_COUNTER':
       return {
         ...state,
         counter: state.counter + 1,
-      }
-    case 'gwent/slider/HIDE_SLIDER':
-      return {
-        ...state,
-        sliderVisible: false,
+        active: state.counter > 0 ? false : true,
       }
     default:
       return state
@@ -35,10 +30,6 @@ export const setSlider = () => (
 
 export const increaseCounter = () => (
   { type: INCREASE_COUNTER }
-)
-
-export const hideSlider = () => (
-  { type: HIDE_SLIDER }
 )
 
 export default sliderReducer;

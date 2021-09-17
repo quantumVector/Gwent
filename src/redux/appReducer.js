@@ -1,5 +1,6 @@
 import { installDecks } from "./decksReducer";
 import { setModal } from "./modalReducer";
+import { setSlider } from "./sliderReducer";
 
 const DEPLOYMENT_SUCCESS = 'gwent/deployment/DEPLOYMENT_SUCCESS';
 const SET_MOVE = 'gwent/deployment/SET_MOVE';
@@ -47,6 +48,8 @@ export const deployGame = () => (dispatch) => {
   dispatch(setModal(message))
   dispatch(installDecks());
   dispatch(deploymentSuccess());
+
+  setTimeout(() => dispatch(setSlider()), 2000);
 }
 
 const draw = () => {
