@@ -3,12 +3,10 @@ import thunkMiddleware from 'redux-thunk';
 import decksReducer from './decksReducer';
 import appReducer from './appReducer';
 import modalReducer from './modalReducer';
-import sliderReducer from './sliderReducer';
 
 const reducers = combineReducers({
   app: appReducer,
   modal: modalReducer,
-  slider: sliderReducer,
   decks: decksReducer,
 });
 

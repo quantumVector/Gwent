@@ -1,6 +1,5 @@
 import { installDecks } from "./decksReducer";
-import { setModal } from "./modalReducer";
-import { setSlider } from "./sliderReducer";
+import { setModalMessageAndSlider } from "./modalReducer";
 
 const DEPLOYMENT_SUCCESS = 'gwent/deployment/DEPLOYMENT_SUCCESS';
 const SET_MOVE = 'gwent/deployment/SET_MOVE';
@@ -41,15 +40,13 @@ export const deployGame = () => (dispatch) => {
   const resultDraw = draw();
   let message;
 
-  if (resultDraw === 'user') message='Вы делаете ход первым';
-  if (resultDraw === 'enemy') message='Противник ходит первым';
+  if (resultDraw === 'user') message = 'Вы делаете ход первым';
+  if (resultDraw === 'enemy') message = 'Противник ходит первым';
 
   dispatch(setMove(resultDraw));
-  dispatch(setModal(message))
   dispatch(installDecks());
+  dispatch(setModalMessageAndSlider(message));
   dispatch(deploymentSuccess());
-
-  setTimeout(() => dispatch(setSlider()), 2000);
 }
 
 const draw = () => {
