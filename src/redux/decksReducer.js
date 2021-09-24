@@ -1,27 +1,28 @@
-import enemyDeck from "./decks/enemyDeck";
-import userDeck from "./decks/userDeck";
+import collectionEnemyCards from "./decks/enemyDeck";
+import collectionUserCards from "./decks/userDeck";
+import { setSelectedCard } from "./gameProcessReducer";
 
-const SET_SHUFFLED_DECKS = 'gwent/gameDeployment/SET_SHUFFLED_DECKS';
-const SET_HANDS = 'gwent/gameDeployment/SET_HANDS';
-const REPLACE_CARD = 'gwent/gameDeployment/REPLACE_CARD';
+const SET_SHUFFLED_DECKS = 'gwent/decks/SET_SHUFFLED_DECKS';
+const SET_HANDS = 'gwent/decks/SET_HANDS';
+const REPLACE_CARD = 'gwent/decks/REPLACE_CARD';
 
 const initialState = {
-  enemyDeck: enemyDeck,
-  userDeck: userDeck,
+  enemyDeck: collectionEnemyCards,
+  userDeck: collectionUserCards,
   enemyHand: null,
   userHand: null,
 };
 
 const decksReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'gwent/gameDeployment/SET_SHUFFLED_DECKS': {
+    case 'gwent/decks/SET_SHUFFLED_DECKS': {
       return {
         ...state,
         enemyDeck: action.enemyDeck,
         userDeck: action.userDeck,
       }
     }
-    case 'gwent/gameDeployment/SET_HANDS': {
+    case 'gwent/decks/SET_HANDS': {
       return {
         ...state,
         enemyHand: [...state.enemyDeck.slice(-10)],
@@ -30,7 +31,7 @@ const decksReducer = (state = initialState, action) => {
         userDeck: [...state.userDeck.reverse().slice(10).reverse()],
       }
     }
-    case 'gwent/gameDeployment/REPLACE_CARD': {
+    case 'gwent/decks/REPLACE_CARD': {
       const cardFromHand = state.userHand.find(card => card.id === action.cardId);
       const cloneUserDeck = JSON.parse(JSON.stringify(state.userDeck));
       const cardFromDeck = cloneUserDeck.pop();
@@ -69,8 +70,8 @@ export const setHands = () => (
 )
 
 export const installDecks = () => (dispatch) => {
-  const shuffledEnemyDeck = shuffle(enemyDeck);
-  const shuffledUserDeck = shuffle(userDeck);
+  const shuffledEnemyDeck = shuffle(collectionEnemyCards);
+  const shuffledUserDeck = shuffle(collectionUserCards);
 
   dispatch(setShuffledDecks(shuffledEnemyDeck, shuffledUserDeck));
   dispatch(setHands());
@@ -90,5 +91,11 @@ const shuffle = (deck) => {
 export const replaceСard = (cardId) => (
   { type: REPLACE_CARD, cardId }
 )
+
+export const selectCard = (cardId) => (dispatch) => {
+  const selectedCard = collectionUserCards.find(card => card.id === cardId);
+
+  dispatch(setSelectedCard(selectedCard));
+}
 
 export default decksReducer;

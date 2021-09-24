@@ -1,21 +1,16 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { selectCard } from '../../redux/decksReducer';
-import UserHand from './UserHand';
+import SelectedCard from './SelectedCard';
 
 const mapStateToProps = (state) => ({
-  userHand: state.decks.userHand,
+  selectedCard: state.gameProcess.selectedCard,
 });
 
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    selectCard: (card) => {
-      dispatch(selectCard(card));
-    },
-  };
+  return {};
 }
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-)(UserHand);
+)(SelectedCard);

@@ -1,0 +1,13 @@
+.selectedCard {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 3;
+  grid-area: selectedCard;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+}
