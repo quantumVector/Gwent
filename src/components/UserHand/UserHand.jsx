@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import UserHandItem from '../UserHandItem/UserHandItem';
 import classes from './UserHand.module.css';
 
-const UserHand = ({ userHand, selectCard }) => {
-  const cards = userHand.map(item => {
+const UserHand = ({ userHand, selectCard, selectedCard, removeSelectedCard }) => {
+const cards = userHand.map(item => {
     return <UserHandItem
       key={item.id}
       title={item.title}
       img={item.img}
       id={item.id}
-      selectCard={selectCard} />
+      selectCard={selectCard}
+      selectedCard={selectedCard}
+      removeSelectedCard={removeSelectedCard} />
   })
 
   return (

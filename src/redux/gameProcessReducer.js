@@ -1,4 +1,5 @@
 const SET_SELECTED_CARD = 'gwent/gameProcess/SET_SELECTED_CARD';
+const REMOVE_SELECTED_CARD = 'gwent/gameProcess/REMOVE_SELECTED_CARD';
 
 const initialState = {
   selectionMod: false,
@@ -46,6 +47,11 @@ const gameProcessReducer = (state = initialState, action) => {
 export const setSelectedCard = (card) => (
   { type: SET_SELECTED_CARD, card }
 )
+
+export const removeSelectedCard = () => (
+  { type: REMOVE_SELECTED_CARD }
+)
+
 
 
 export default gameProcessReducer;
