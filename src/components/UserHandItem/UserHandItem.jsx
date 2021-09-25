@@ -14,9 +14,10 @@ const UserHandItem = ({ title, img, id, selectCard, selectedCard, removeSelected
   }
 
   useEffect(() => {
-    if (!selectedCard) setPlug(false);
-    if (selectedCard) {
-      if (card.current.attributes['card-id'].value !== selectedCard.id) setPlug(false);
+    if (!selectedCard) {
+      setPlug(false);
+    } else if (card.current.attributes['card-id'].value !== selectedCard.id) {
+      setPlug(false);
     }
   }, [selectedCard]);
 
