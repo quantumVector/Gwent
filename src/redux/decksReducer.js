@@ -3,14 +3,19 @@ import collectionUserCards from "./decks/userDeck";
 import { setSelectedCard } from "./gameProcessReducer";
 
 const SET_SHUFFLED_DECKS = 'gwent/decks/SET_SHUFFLED_DECKS';
+const SET_USER_DECK_NUMBER = 'gwent/decks/SET_USER_DECK_NUMBER';
 const SET_HANDS = 'gwent/decks/SET_HANDS';
 const REPLACE_CARD = 'gwent/decks/REPLACE_CARD';
 
 const initialState = {
-  enemyDeck: collectionEnemyCards,
-  userDeck: collectionUserCards,
+  enemyDeck: [],
+  userDeck: [],
   enemyHand: null,
   userHand: null,
+  enemyDeckFace: collectionEnemyCards.face,
+  enemyDeckNumber: 0,
+  userDeckFace: collectionUserCards.face,
+  userDeckNumber: 0,
 };
 
 const decksReducer = (state = initialState, action) => {
@@ -20,6 +25,12 @@ const decksReducer = (state = initialState, action) => {
         ...state,
         enemyDeck: action.enemyDeck,
         userDeck: action.userDeck,
+      }
+    }
+    case 'gwent/decks/SET_USER_DECK_NUMBER': {
+      return {
+        ...state,
+        userDeckNumber: state.userDeck.length,
       }
     }
     case 'gwent/decks/SET_HANDS': {
@@ -70,10 +81,11 @@ export const setHands = () => (
 )
 
 export const installDecks = () => (dispatch) => {
-  const shuffledEnemyDeck = shuffle(collectionEnemyCards);
-  const shuffledUserDeck = shuffle(collectionUserCards);
+  const shuffledEnemyDeck = shuffle(collectionEnemyCards.cards);
+  const shuffledUserDeck = shuffle(collectionUserCards.cards);
 
   dispatch(setShuffledDecks(shuffledEnemyDeck, shuffledUserDeck));
+  dispatch(setUserDeckNumber());
   dispatch(setHands());
 }
 
@@ -88,12 +100,17 @@ const shuffle = (deck) => {
   return shuffledArray;
 };
 
+export const setUserDeckNumber = () => (
+  { type: SET_USER_DECK_NUMBER }
+)
+
+
 export const replaceСard = (cardId) => (
   { type: REPLACE_CARD, cardId }
 )
 
 export const selectCard = (cardId) => (dispatch) => {
-  const selectedCard = collectionUserCards.find(card => card.id === cardId);
+  const selectedCard = collectionUserCards.cards.find(card => card.id === cardId);
 
   dispatch(setSelectedCard(selectedCard));
 }
