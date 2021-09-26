@@ -5,9 +5,17 @@
   position: relative;
 }
 
+.enemyDeck {
+  -ms-grid-row: 1;
+  -ms-grid-column: 7;
+  grid-area: enemyDeck;
+  position: relative;
+}
+
 .face {
   margin: 0;
   width: 81px;
+  cursor: default;
 }
 
 .number {

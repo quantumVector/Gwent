@@ -4,6 +4,7 @@ import { setSelectedCard } from "./gameProcessReducer";
 
 const SET_SHUFFLED_DECKS = 'gwent/decks/SET_SHUFFLED_DECKS';
 const SET_USER_DECK_NUMBER = 'gwent/decks/SET_USER_DECK_NUMBER';
+const SET_ENEMY_DECK_NUMBER = 'gwent/decks/SET_ENEMY_DECK_NUMBER';
 const SET_HANDS = 'gwent/decks/SET_HANDS';
 const REPLACE_CARD = 'gwent/decks/REPLACE_CARD';
 
@@ -31,6 +32,12 @@ const decksReducer = (state = initialState, action) => {
       return {
         ...state,
         userDeckNumber: state.userDeck.length,
+      }
+    }
+    case 'gwent/decks/SET_ENEMY_DECK_NUMBER': {
+      return {
+        ...state,
+        enemyDeckNumber: state.enemyDeck.length,
       }
     }
     case 'gwent/decks/SET_HANDS': {
@@ -86,6 +93,7 @@ export const installDecks = () => (dispatch) => {
 
   dispatch(setShuffledDecks(shuffledEnemyDeck, shuffledUserDeck));
   dispatch(setUserDeckNumber());
+  dispatch(setEnemyDeckNumber());
   dispatch(setHands());
 }
 
@@ -104,6 +112,9 @@ export const setUserDeckNumber = () => (
   { type: SET_USER_DECK_NUMBER }
 )
 
+export const setEnemyDeckNumber = () => (
+  { type: SET_ENEMY_DECK_NUMBER }
+)
 
 export const replaceСard = (cardId) => (
   { type: REPLACE_CARD, cardId }
