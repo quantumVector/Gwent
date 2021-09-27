@@ -29,28 +29,6 @@ class App extends Component {
         <div className="userInfo"></div>
         <div className="userLeader"></div>
         <div className="battlefield">
-          {/* <div className="enemySide">
-            <div className="enemyMeleeCards"></div>
-            <div className="enemyRangedCards"></div>
-            <div className="enemySiegeCards"></div>
-            <div className="enemyModifieSiege"></div>
-            <div className="enemyModifieRanged"></div>
-            <div className="enemyModifieMelee"></div>
-            <div className="enemyMeleePower"></div>
-            <div className="enemyRangedPower"></div>
-            <div className="enemySiegePower"></div>
-          </div> */}
-          {/* <div className="userSide">
-            <div className="userModifierRanged"></div>
-            <div className="userModifierMelee"></div>
-            <div className="userModifierSiege"></div>
-            <div className="userMeleeCards"></div>
-            <div className="userRangedCards"></div>
-            <div className="userSiegeCards"></div>
-            <div className="userMeleePower"></div>
-            <div className="userRangedPower"></div>
-            <div className="userSiegePower"></div>
-          </div> */}
           <SideContainer state={this.props.state} side='enemy' />
           <SideContainer state={this.props.state} side='user' />
           <UserHandContainer state={this.props.state} />

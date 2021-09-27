@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Side.module.css';
+import cn from 'classnames';
 
 const Side = (props) => {
   const side = props.side;
@@ -32,8 +33,8 @@ const SideTemplate = ({ className, side }) => {
 
 const SideItem = ({ side, typeUnits, typeComponent }) => {
   return (
-    <div className={classes[`${side}${typeUnits}${typeComponent}`]}>
-
+    <div className={cn(classes[`${side}${typeUnits}${typeComponent}`], classes[`${typeComponent}Wrap`])}>
+      <div className={classes[`${typeComponent}Item`]}></div>
     </div>
   )
 }

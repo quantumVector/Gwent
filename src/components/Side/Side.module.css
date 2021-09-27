@@ -118,7 +118,6 @@
   -ms-grid-column-span: 5;
   grid-area: userRangedCards;
 }
-
 .userSiegeCards {
   -ms-grid-row: 5;
   -ms-grid-column: 5;
@@ -142,4 +141,44 @@
   -ms-grid-row: 5;
   -ms-grid-column: 1;
   grid-area: userSiegePower;
+}
+
+.PowerWrap {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-bottom: 10px;
+  width: 45px;
+}
+
+.ModifierWrap {
+  width: 100px;
+}
+
+.CardsWrap {
+  width: 100%;
+}
+
+.PowerItem {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgb(70, 197, 187);
+}
+
+.ModifierItem {
+  width: 100px;
+  height: 85px;
+  background-color: rgb(70, 197, 187);
+}
+
+.CardsItem {
+  width: 587px;
+  height: 85px;
+  cursor: pointer;
+  background-color: rgb(70, 197, 187);
+}
+
+.CardsItem:hover {
+  box-shadow: 0 0 0 3px rgb(250, 158, 9);
 }
