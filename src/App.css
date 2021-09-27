@@ -62,7 +62,7 @@
   grid-area: battlefield;
 }
 
-.enemySide {
+/* .enemySide {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 5;
@@ -147,7 +147,7 @@
   grid-template-rows: 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "userMeleePower userModifieMelee userMeleeCards userMeleeCards userMeleeCards" "userRangedPower userModifierRanged userRangedCards userRangedCards userRangedCards" "userSiegePower userModifierSiege userSiegeCards userSiegeCards userSiegeCards";
+  grid-template-areas: "userMeleePower userModifierMelee userMeleeCards userMeleeCards userMeleeCards" "userRangedPower userModifierRanged userRangedCards userRangedCards userRangedCards" "userSiegePower userModifierSiege userSiegeCards userSiegeCards userSiegeCards";
   grid-area: userSide;
 }
 
@@ -157,10 +157,10 @@
   grid-area: userModifierRanged;
 }
 
-.userModifieMelee {
+.userModifierMelee {
   -ms-grid-row: 1;
   -ms-grid-column: 3;
-  grid-area: userModifieMelee;
+  grid-area: userModifierMelee;
 }
 
 .userModifierSiege {
@@ -206,7 +206,7 @@
   -ms-grid-row: 5;
   -ms-grid-column: 1;
   grid-area: userSiegePower;
-}
+} */
 
 .userHand {
   -ms-grid-row: 5;

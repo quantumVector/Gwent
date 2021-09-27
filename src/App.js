@@ -5,6 +5,7 @@ import './App.css';
 import ModalContainer from './components/ModalContainer/ModalContainer';
 import Preloader from './components/Preloader/Preloader';
 import SelectedCardContainer from './components/SelectedCard/SelectedCardContainer';
+import SideContainer from './components/Side/SideContainer';
 import DecksContainer from './components/UserDeck/DecksContainer';
 import UserHandContainer from './components/UserHand/UserHandContainer';
 import { deployGame } from './redux/appReducer';
@@ -28,7 +29,7 @@ class App extends Component {
         <div className="userInfo"></div>
         <div className="userLeader"></div>
         <div className="battlefield">
-          <div className="enemySide">
+          {/* <div className="enemySide">
             <div className="enemyMeleeCards"></div>
             <div className="enemyRangedCards"></div>
             <div className="enemySiegeCards"></div>
@@ -38,10 +39,10 @@ class App extends Component {
             <div className="enemyMeleePower"></div>
             <div className="enemyRangedPower"></div>
             <div className="enemySiegePower"></div>
-          </div>
-          <div className="userSide">
+          </div> */}
+          {/* <div className="userSide">
             <div className="userModifierRanged"></div>
-            <div className="userModifieMelee"></div>
+            <div className="userModifierMelee"></div>
             <div className="userModifierSiege"></div>
             <div className="userMeleeCards"></div>
             <div className="userRangedCards"></div>
@@ -49,13 +50,15 @@ class App extends Component {
             <div className="userMeleePower"></div>
             <div className="userRangedPower"></div>
             <div className="userSiegePower"></div>
-          </div>
+          </div> */}
+          <SideContainer state={this.props.state} side='enemy' />
+          <SideContainer state={this.props.state} side='user' />
           <UserHandContainer state={this.props.state} />
         </div>
         <div className="enemyGraveyard"></div>
         <div className="userGraveyard"></div>
-        <DecksContainer state={this.props.state} side='enemy'/>
-        <DecksContainer state={this.props.state} side='user'/>
+        <DecksContainer state={this.props.state} side='enemy' />
+        <DecksContainer state={this.props.state} side='user' />
         <SelectedCardContainer state={this.props.state} />
         <ModalContainer state={this.props.state} />
       </div>

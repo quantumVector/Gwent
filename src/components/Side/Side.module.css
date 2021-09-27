@@ -1,0 +1,145 @@
+.enemySide {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.3fr 0px 0.7fr 0px 1.3fr 0px 1.3fr 0px 1.3fr;
+  grid-template-columns: 0.3fr 0.7fr 1.3fr 1.3fr 1.3fr;
+  -ms-grid-rows: 1fr 0px 1fr 0px 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "enemySiegePower enemySiegeModifier enemySiegeCards enemySiegeCards enemySiegeCards" "enemyRangedPower enemyRangedModifier enemyRangedCards enemyRangedCards enemyRangedCards" "enemyMeleePower enemyMeleeModifier enemyMeleeCards enemyMeleeCards enemyMeleeCards";
+  grid-area: enemySide;
+}
+
+.enemyMeleeCards {
+  -ms-grid-row: 5;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: enemyMeleeCards;
+}
+
+.enemyRangedCards {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: enemyRangedCards;
+}
+
+.enemySiegeCards {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: enemySiegeCards;
+}
+
+.enemySiegeModifier {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: enemySiegeModifier;
+}
+
+.enemyRangedModifier {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: enemyRangedModifier;
+}
+
+.enemyMeleeModifier {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: enemyMeleeModifier;
+}
+
+.enemyMeleePower {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: enemyMeleePower;
+}
+
+.enemyRangedPower {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: enemyRangedPower;
+}
+
+.enemySiegePower {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: enemySiegePower;
+}
+
+.userSide {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.3fr 0px 0.7fr 0px 1.3fr 0px 1.3fr 0px 1.3fr;
+  grid-template-columns: 0.3fr 0.7fr 1.3fr 1.3fr 1.3fr;
+  -ms-grid-rows: 1fr 0px 1fr 0px 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "userMeleePower userMeleeModifier userMeleeCards userMeleeCards userMeleeCards" "userRangedPower userRangedModifier userRangedCards userRangedCards userRangedCards" "userSiegePower userSiegeModifier userSiegeCards userSiegeCards userSiegeCards";
+  grid-area: userSide;
+}
+
+.userRangedModifier {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: userRangedModifier;
+}
+
+.userMeleeModifier {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: userMeleeModifier;
+}
+
+.userSiegeModifier {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: userSiegeModifier;
+}
+
+.userMeleeCards {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: userMeleeCards;
+}
+
+.userRangedCards {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: userRangedCards;
+}
+
+.userSiegeCards {
+  -ms-grid-row: 5;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 5;
+  grid-area: userSiegeCards;
+}
+
+.userMeleePower {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: userMeleePower;
+}
+
+.userRangedPower {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: userRangedPower;
+}
+
+.userSiegePower {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: userSiegePower;
+}
