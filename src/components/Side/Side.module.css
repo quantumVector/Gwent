@@ -118,6 +118,7 @@
   -ms-grid-column-span: 5;
   grid-area: userRangedCards;
 }
+
 .userSiegeCards {
   -ms-grid-row: 5;
   -ms-grid-column: 5;
@@ -144,18 +145,21 @@
 }
 
 .PowerWrap {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   padding-bottom: 10px;
   width: 45px;
 }
 
 .ModifierWrap {
+  position: relative;
   width: 100px;
 }
 
 .CardsWrap {
+  position: relative;
   width: 100%;
 }
 
@@ -175,10 +179,25 @@
 .CardsItem {
   width: 587px;
   height: 85px;
-  cursor: pointer;
   background-color: rgb(70, 197, 187);
 }
 
-.CardsItem:hover {
+.unlocked {
+  display: block;
+}
+
+.unlocked:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 85px;
+  background: rgba(250, 158, 9, .5);
+  cursor: pointer;
+}
+
+.unlocked:hover {
   box-shadow: 0 0 0 3px rgb(250, 158, 9);
 }

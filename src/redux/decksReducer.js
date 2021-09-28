@@ -1,6 +1,6 @@
 import collectionEnemyCards from "./decks/enemyDeck";
 import collectionUserCards from "./decks/userDeck";
-import { setSelectedCard } from "./gameProcessReducer";
+import { setSelectedCard, unlockField } from "./gameProcessReducer";
 
 const SET_SHUFFLED_DECKS = 'gwent/decks/SET_SHUFFLED_DECKS';
 const SET_USER_DECK_NUMBER = 'gwent/decks/SET_USER_DECK_NUMBER';
@@ -108,6 +108,13 @@ const shuffle = (deck) => {
   return shuffledArray;
 };
 
+export const selectCard = (cardId) => (dispatch) => {
+  const selectedCard = collectionUserCards.cards.find(card => card.id === cardId);
+
+  dispatch(setSelectedCard(selectedCard));
+  dispatch(unlockField(selectedCard.type));
+}
+
 export const setUserDeckNumber = () => (
   { type: SET_USER_DECK_NUMBER }
 )
@@ -119,11 +126,5 @@ export const setEnemyDeckNumber = () => (
 export const replaceСard = (cardId) => (
   { type: REPLACE_CARD, cardId }
 )
-
-export const selectCard = (cardId) => (dispatch) => {
-  const selectedCard = collectionUserCards.cards.find(card => card.id === cardId);
-
-  dispatch(setSelectedCard(selectedCard));
-}
 
 export default decksReducer;
