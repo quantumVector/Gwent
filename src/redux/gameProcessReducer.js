@@ -3,6 +3,7 @@ const REMOVE_SELECTED_CARD = 'gwent/gameProcess/REMOVE_SELECTED_CARD';
 const UNLOCK_FIELD_MELEE = 'gwent/gameProcess/UNLOCK_FIELD_MELEE';
 const UNLOCK_FIELD_RANGED = 'gwent/gameProcess/UNLOCK_FIELD_RANGED';
 const UNLOCK_FIELD_SIEGE = 'gwent/gameProcess/UNLOCK_FIELD_SIEGE';
+const BLOCK_ALL_FIELDS = 'gwent/gameProcess/BLOCK_ALL_FIELDS';
 
 const initialState = {
   selectionMod: false,
@@ -63,6 +64,14 @@ const gameProcessReducer = (state = initialState, action) => {
         siegeFieldUnlocked: true,
       }
     }
+    case 'gwent/gameProcess/BLOCK_ALL_FIELDS': {
+      return {
+        ...state,
+        meleeFieldUnlocked: false,
+        rangedFieldUnlocked: false,
+        siegeFieldUnlocked: false,
+      }
+    }
     default:
       return state;
   }
@@ -72,6 +81,11 @@ export const unlockField = (type) => (dispatch) => {
   if (type === 'melee') dispatch(unlockFieldMelee());
   if (type === 'ranged') dispatch(unlockFieldRanged());
   if (type === 'siege') dispatch(unlockFieldSiege());
+}
+
+export const removeCard = () => (dispatch) => {
+  dispatch(blockAllFields());
+  dispatch(removeSelectedCard());
 }
 
 export const setSelectedCard = (card) => (
@@ -94,6 +108,8 @@ export const unlockFieldSiege = () => (
   { type: UNLOCK_FIELD_SIEGE }
 )
 
-
+export const blockAllFields = () => (
+  { type: BLOCK_ALL_FIELDS }
+)
 
 export default gameProcessReducer;

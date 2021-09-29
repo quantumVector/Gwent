@@ -2,7 +2,7 @@ import React from 'react';
 import UserHandItem from '../UserHandItem/UserHandItem';
 import classes from './UserHand.module.css';
 
-const UserHand = ({ userHand, selectCard, selectedCard, removeSelectedCard }) => {
+const UserHand = ({ userHand, selectCard, selectedCard, removeCard }) => {
   const cards = userHand.map(item => {
     return <UserHandItem
       key={item.id}
@@ -11,7 +11,7 @@ const UserHand = ({ userHand, selectCard, selectedCard, removeSelectedCard }) =>
       id={item.id}
       selectCard={selectCard}
       selectedCard={selectedCard}
-      removeSelectedCard={removeSelectedCard} />
+      removeCard={removeCard} />
   })
 
   return (

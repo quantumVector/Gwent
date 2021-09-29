@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import classes from './UserHandItem.module.css';
 import cn from 'classnames';
 
-const UserHandItem = ({ title, img, id, selectCard, selectedCard, removeSelectedCard }) => {
+const UserHandItem = ({ title, img, id, selectCard, selectedCard, removeCard }) => {
   const [plug, setPlug] = useState(false);
   const card = useRef(null);
 
   const onSelectCard = (e) => {
-    if (selectedCard) removeSelectedCard();
+    if (selectedCard) removeCard();
 
     selectCard(e.target.attributes['card-id'].value);
     setPlug(true);

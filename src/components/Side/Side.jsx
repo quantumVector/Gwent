@@ -32,7 +32,6 @@ const SideTemplate = ({ className, side, ...props }) => {
 }
 
 const SideItem = ({ side, typeUnits, typeComponent, ...props }) => {
-  console.log(props.meleeFieldUnlocked)
   return (
     <div className={cn(
       classes[`${side}${typeUnits}${typeComponent}`],

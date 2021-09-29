@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { removeSelectedCard } from '../../redux/gameProcessReducer';
+import { removeCard } from '../../redux/gameProcessReducer';
 import SelectedCard from './SelectedCard';
 
 const mapStateToProps = (state) => ({
@@ -10,8 +10,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    removeSelectedCard: () => {
-      dispatch(removeSelectedCard());
+    removeCard: () => {
+      dispatch(removeCard());
     },
   };
 }
