@@ -177,13 +177,17 @@
 }
 
 .CardsItem {
+  display: flex;
+  justify-content: center;
   width: 587px;
   height: 85px;
   background-color: rgb(70, 197, 187);
+  overflow: hidden;
 }
 
 .unlocked {
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 
 .unlocked:after {
@@ -200,4 +204,11 @@
 
 .unlocked:hover {
   box-shadow: 0 0 0 3px rgb(250, 158, 9);
+}
+
+.img {
+  margin: 0 2px;
+  width: 65px;
+  height: 115px;
+  user-select: none;
 }

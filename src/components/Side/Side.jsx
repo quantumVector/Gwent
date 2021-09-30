@@ -32,6 +32,10 @@ const SideTemplate = ({ className, side, ...props }) => {
 }
 
 const SideItem = ({ side, typeUnits, typeComponent, ...props }) => {
+  const onPlayCard = () => {
+    if (unlockedField) props.playCard(props.selectedCard, unlockedField);
+  }
+
   const defineUnlockedField = () => {
     if (props.meleeFieldUnlocked && typeUnits === 'Melee' && side === 'user') return 'melee';
     if (props.rangedFieldUnlocked && typeUnits === 'Ranged' && side === 'user') return 'ranged';
@@ -40,19 +44,34 @@ const SideItem = ({ side, typeUnits, typeComponent, ...props }) => {
 
   const unlockedField = defineUnlockedField();
 
-  const onPlayCard = () => {
-    if (unlockedField) props.playCard(props.selectedCard, unlockedField);
+  let cards;
+
+  const setCards = (cardsArray) => {
+    cards = cardsArray.map(item => {
+      return <UnitCards key={item.id} img={item.img} title={item.title} />
+    })
   }
+
+  if (typeUnits === 'Melee' && side === 'user' && typeComponent === 'Cards') setCards(props.userMeleeCards);
+  if (typeUnits === 'Ranged' && side === 'user' && typeComponent === 'Cards') setCards(props.userRangedCards);
+  if (typeUnits === 'Siege' && side === 'user' && typeComponent === 'Cards') setCards(props.userSiegeCards);
 
   return (
     <div className={cn(
       classes[`${side}${typeUnits}${typeComponent}`],
       classes[`${typeComponent}Wrap`]
     )}>
-
       <div className={cn(classes[`${typeComponent}Item`], { [classes.unlocked]: unlockedField })}
-        onDoubleClick={onPlayCard}></div>
+        onDoubleClick={onPlayCard}>{cards}</div>
     </div>
+  )
+}
+
+const UnitCards = ({ img, title }) => {
+  return (
+    <img className={classes.img}
+      src={img}
+      alt={title} />
   )
 }
 
