@@ -4,6 +4,9 @@ const UNLOCK_FIELD_MELEE = 'gwent/gameProcess/UNLOCK_FIELD_MELEE';
 const UNLOCK_FIELD_RANGED = 'gwent/gameProcess/UNLOCK_FIELD_RANGED';
 const UNLOCK_FIELD_SIEGE = 'gwent/gameProcess/UNLOCK_FIELD_SIEGE';
 const BLOCK_ALL_FIELDS = 'gwent/gameProcess/BLOCK_ALL_FIELDS';
+const SET_PLAYED_MELEE_CARD = 'gwent/gameProcess/SET_PLAYED_MELEE_CARD';
+const SET_PLAYED_RANGED_CARD = 'gwent/gameProcess/SET_PLAYED_RANGED_CARD';
+const SET_PLAYED_SIEGE_CARD = 'gwent/gameProcess/SET_PLAYED_SIEGE_CARD';
 
 const initialState = {
   selectionMod: false,
@@ -72,9 +75,39 @@ const gameProcessReducer = (state = initialState, action) => {
         siegeFieldUnlocked: false,
       }
     }
+    case 'gwent/gameProcess/SET_PLAYED_MELEE_CARD': {
+      const cloneCards = setCloneCards(state.userMeleeCards, action.card);
+
+      return {
+        ...state,
+        userMeleeCards: cloneCards,
+      }
+    }
+    case 'gwent/gameProcess/SET_PLAYED_RANGED_CARD': {
+      const cloneCards = setCloneCards(state.userRangedCards, action.card);
+
+      return {
+        ...state,
+        userRangedCards: cloneCards,
+      }
+    }
+    case 'gwent/gameProcess/SET_PLAYED_SIEGE_CARD': {
+      const cloneCards = setCloneCards(state.userSiegeCards, action.card);
+
+      return {
+        ...state,
+        userSiegeCards: cloneCards,
+      }
+    }
     default:
       return state;
   }
+}
+
+const setCloneCards = (cards, selectedCard) => {
+  const cloneCards = JSON.parse(JSON.stringify(cards));
+  cloneCards.push(selectedCard);
+  return cloneCards;
 }
 
 export const unlockField = (type) => (dispatch) => {
@@ -86,6 +119,14 @@ export const unlockField = (type) => (dispatch) => {
 export const removeCard = () => (dispatch) => {
   dispatch(blockAllFields());
   dispatch(removeSelectedCard());
+}
+
+export const playCard = (card, field) => (dispatch) => {
+  if (field === 'melee') dispatch(setPlayedMeleeCard(card));
+  if (field === 'ranged') dispatch(setPlayedRangedCard(card));
+  if (field === 'siege') dispatch(setPlayedSiegeCard(card));
+
+  dispatch(removeCard());
 }
 
 export const setSelectedCard = (card) => (
@@ -110,6 +151,18 @@ export const unlockFieldSiege = () => (
 
 export const blockAllFields = () => (
   { type: BLOCK_ALL_FIELDS }
+)
+
+export const setPlayedMeleeCard = (card) => (
+  { type: SET_PLAYED_MELEE_CARD, card }
+)
+
+export const setPlayedRangedCard = (card) => (
+  { type: SET_PLAYED_RANGED_CARD, card }
+)
+
+export const setPlayedSiegeCard = (card) => (
+  { type: SET_PLAYED_SIEGE_CARD, card }
 )
 
 export default gameProcessReducer;

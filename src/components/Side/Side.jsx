@@ -32,20 +32,26 @@ const SideTemplate = ({ className, side, ...props }) => {
 }
 
 const SideItem = ({ side, typeUnits, typeComponent, ...props }) => {
+  const defineUnlockedField = () => {
+    if (props.meleeFieldUnlocked && typeUnits === 'Melee' && side === 'user') return 'melee';
+    if (props.rangedFieldUnlocked && typeUnits === 'Ranged' && side === 'user') return 'ranged';
+    if (props.siegeFieldUnlocked && typeUnits === 'Siege' && side === 'user') return 'siege';
+  }
+
+  const unlockedField = defineUnlockedField();
+
+  const onPlayCard = () => {
+    if (unlockedField) props.playCard(props.selectedCard, unlockedField);
+  }
+
   return (
     <div className={cn(
       classes[`${side}${typeUnits}${typeComponent}`],
       classes[`${typeComponent}Wrap`]
     )}>
 
-      <div className={cn(
-        classes[`${typeComponent}Item`],
-        {
-          [classes.unlocked]: (props.meleeFieldUnlocked && typeUnits === 'Melee' && side === 'user')
-            || (props.rangedFieldUnlocked && typeUnits === 'Ranged' && side === 'user')
-            || (props.siegeFieldUnlocked && typeUnits === 'Siege' && side === 'user')
-        },
-      )}></div>
+      <div className={cn(classes[`${typeComponent}Item`], { [classes.unlocked]: unlockedField })}
+        onDoubleClick={onPlayCard}></div>
     </div>
   )
 }
