@@ -7,6 +7,7 @@ const SET_USER_DECK_NUMBER = 'gwent/decks/SET_USER_DECK_NUMBER';
 const SET_ENEMY_DECK_NUMBER = 'gwent/decks/SET_ENEMY_DECK_NUMBER';
 const SET_HANDS = 'gwent/decks/SET_HANDS';
 const REPLACE_CARD = 'gwent/decks/REPLACE_CARD';
+const DELETE_USER_HAND_CARD = 'gwent/decks/DELETE_USER_HAND_CARD';
 
 const initialState = {
   enemyDeck: [],
@@ -74,6 +75,19 @@ const decksReducer = (state = initialState, action) => {
         userDeck: shuffle(cloneUserDeck),
       }
     }
+    case 'gwent/decks/DELETE_USER_HAND_CARD': {
+      const cloneUserHand = JSON.parse(JSON.stringify(state.userHand));
+      const idx = cloneUserHand.findIndex((item) => {
+        return item.id === action.cardId;
+      });
+
+      cloneUserHand.splice(idx, 1);
+
+      return {
+        ...state,
+        userHand: cloneUserHand,
+      }
+    }
     default:
       return state;
   }
@@ -125,6 +139,10 @@ export const setEnemyDeckNumber = () => (
 
 export const replaceСard = (cardId) => (
   { type: REPLACE_CARD, cardId }
+)
+
+export const deleteUserHandCard = (cardId) => (
+  { type: DELETE_USER_HAND_CARD, cardId }
 )
 
 export default decksReducer;

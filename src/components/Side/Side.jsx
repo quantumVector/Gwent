@@ -33,7 +33,10 @@ const SideTemplate = ({ className, side, ...props }) => {
 
 const SideItem = ({ side, typeUnits, typeComponent, ...props }) => {
   const onPlayCard = () => {
-    if (unlockedField) props.playCard(props.selectedCard, unlockedField);
+    if (unlockedField) {
+      props.playCard(props.selectedCard, unlockedField);
+      props.deleteUserHandCard(props.selectedCard.id);
+    }
   }
 
   const defineUnlockedField = () => {

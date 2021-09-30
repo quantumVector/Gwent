@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { deleteUserHandCard } from '../../redux/decksReducer';
 import { playCard } from '../../redux/gameProcessReducer';
 import Side from './Side';
 
@@ -19,6 +20,9 @@ const mapDispatchToProps = (dispatch) => {
     playCard: (card, field) => {
       dispatch(playCard(card, field));
     },
+    deleteUserHandCard: (cardId) => {
+      dispatch(deleteUserHandCard(cardId));
+    }
   };
 }
 
