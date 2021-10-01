@@ -9,6 +9,9 @@ const UserHand = ({ userHand, selectCard, selectedCard, removeCard }) => {
       title={item.title}
       img={item.img}
       id={item.id}
+      power = {item.power}
+      type={item.type}
+      ability={item.ability}
       selectCard={selectCard}
       selectedCard={selectedCard}
       removeCard={removeCard} />

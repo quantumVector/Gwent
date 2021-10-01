@@ -186,7 +186,7 @@ const userDeck = {
       title: 'Цирилла',
       power: 15,
       type: 'melee',
-      ability: 'Hero',
+      ability: 'hero',
       img: Cirilla,
       id: 'u21'
     },
@@ -194,13 +194,13 @@ const userDeck = {
       title: 'Геральт из Ривии',
       power: 15,
       type: 'melee',
-      ability: 'Hero',
+      ability: 'hero',
       img: Geralt,
       id: 'u22'
     },
     {
       title: 'Чучело',
-      power: 'decoy',
+      power: 0,
       type: 'decoy',
       ability: 'decoy',
       img: Decoy,
@@ -208,7 +208,7 @@ const userDeck = {
     },
     {
       title: 'Чучело',
-      power: 'decoy',
+      power: 0,
       type: 'decoy',
       ability: 'decoy',
       img: Decoy,
@@ -216,7 +216,7 @@ const userDeck = {
     },
     {
       title: 'Командирский рог',
-      power: 'morale',
+      power: 0,
       type: 'modifieMelee',
       ability: 'morale',
       img: CommandersHorn,

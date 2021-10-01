@@ -51,7 +51,13 @@ const SideItem = ({ side, typeUnits, typeComponent, ...props }) => {
 
   const setCards = (cardsArray) => {
     cards = cardsArray.map(item => {
-      return <UnitCards key={item.id} img={item.img} title={item.title} />
+      return <UnitCards
+        key={item.id}
+        img={item.img}
+        title={item.title}
+        power={item.power}
+        type={item.type}
+        ability={item.ability} />
     })
   }
 
@@ -70,11 +76,15 @@ const SideItem = ({ side, typeUnits, typeComponent, ...props }) => {
   )
 }
 
-const UnitCards = ({ img, title }) => {
+const UnitCards = ({ img, title, power, type, ability }) => {
+  const isSpecialCard = (type === 'decoy') || (type === 'modifieMelee');
+  const isHero = (ability === 'hero') || (ability === 'medicHero') || (ability === 'spyHero');
+
   return (
-    <img className={classes.img}
-      src={img}
-      alt={title} />
+    <div className={classes.item}>
+      <img className={classes.img} src={img} alt={title} />
+      <div className={cn(classes.power, { [classes.heroPower]: isHero })}>{!isSpecialCard && power}</div>
+    </div>
   )
 }
 

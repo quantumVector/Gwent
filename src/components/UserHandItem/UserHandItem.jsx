@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import classes from './UserHandItem.module.css';
 import cn from 'classnames';
 
-const UserHandItem = ({ title, img, id, selectCard, selectedCard, removeCard }) => {
+const UserHandItem = ({ title, img, id, power, type, ability, selectCard, selectedCard, removeCard }) => {
   const [plug, setPlug] = useState(false);
   const card = useRef(null);
 
@@ -21,6 +21,9 @@ const UserHandItem = ({ title, img, id, selectCard, selectedCard, removeCard }) 
     }
   }, [selectedCard]);
 
+  const isSpecialCard = (type === 'decoy') || (type === 'modifieMelee');
+  const isHero = (ability === 'hero') || (ability === 'medicHero') || (ability === 'spyHero');
+
   return (
     <div className={classes.item}>
       <img ref={card}
@@ -29,6 +32,7 @@ const UserHandItem = ({ title, img, id, selectCard, selectedCard, removeCard }) 
         alt={title}
         card-id={id}
         onDoubleClick={onSelectCard} />
+      <div className={cn(classes.power, { [classes.heroPower]: isHero })}>{!isSpecialCard && power}</div>
     </div>
   )
 }
