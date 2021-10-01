@@ -4,8 +4,8 @@
   -ms-grid-column-span: 5;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 0.3fr 0px 0.7fr 0px 1.3fr 0px 1.3fr 0px 1.3fr;
-  grid-template-columns: 0.3fr 0.7fr 1.3fr 1.3fr 1.3fr;
+  -ms-grid-columns: 0.3fr 0px 0.6fr 0px 1.3fr 0px 1.3fr 0px 1.3fr;
+  grid-template-columns: 0.3fr 0.6fr 1.3fr 1.3fr 1.3fr;
   -ms-grid-rows: 1fr 0px 1fr 0px 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 0px 0px;
@@ -77,8 +77,8 @@
   -ms-grid-column-span: 5;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 0.3fr 0px 0.7fr 0px 1.3fr 0px 1.3fr 0px 1.3fr;
-  grid-template-columns: 0.3fr 0.7fr 1.3fr 1.3fr 1.3fr;
+  -ms-grid-columns: 0.3fr 0px 0.6fr 0px 1.3fr 0px 1.3fr 0px 1.3fr;
+  grid-template-columns: 0.3fr 0.6fr 1.3fr 1.3fr 1.3fr;
   -ms-grid-rows: 1fr 0px 1fr 0px 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 0px 0px;
@@ -150,7 +150,7 @@
   align-items: center;
   justify-content: flex-end;
   padding-bottom: 10px;
-  width: 45px;
+  margin-right: 10px;
 }
 
 .ModifierWrap {
@@ -164,24 +164,27 @@
 }
 
 .PowerItem {
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  background-color: rgb(70, 197, 187);
+  background-color: rgba(0, 0, 0, 0.26);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.452);
 }
 
 .ModifierItem {
-  width: 100px;
-  height: 85px;
-  background-color: rgb(70, 197, 187);
+  width: 120px;
+  height: 113px;
+  background-color: rgba(0, 0, 0, 0.26);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.452);
 }
 
 .CardsItem {
   display: flex;
   justify-content: center;
-  width: 587px;
-  height: 85px;
-  background-color: rgb(70, 197, 187);
+  width: 845px;
+  height: 113px;
+  background-color: rgba(0, 0, 0, 0.26);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.452);
   overflow: hidden;
 }
 
@@ -197,7 +200,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 85px;
+  width: 845px;
+  height: 113px;
   background: rgba(250, 158, 9, .5);
   cursor: pointer;
 }
@@ -208,7 +212,7 @@
 
 .img {
   margin: 0 2px;
-  width: 65px;
-  height: 115px;
+  width: 83px;
+  height: 153px;
   user-select: none;
 }

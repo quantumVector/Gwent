@@ -1,14 +1,13 @@
 .app-wrapper {
   position: relative;
-  width: 1366px;
-  height: 768px;
-  margin: 0 auto;
-  background: url('./assets/canvas.png') no-repeat;
-  border: 5px solid rgb(128, 51, 0);
+  width: 1920px;
+  height: 935px;
+  /* background: url('./assets/canvas.png') no-repeat;
+  background-size: 100% 100%; */
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1.3fr 0px 2.7fr 0px 0.5fr 0px 0.5fr;
-  grid-template-columns: 1.3fr 2.7fr 0.5fr 0.5fr;
+  -ms-grid-columns: 1fr 0px 2.7fr 0px 0.5fr 0px 0.5fr;
+  grid-template-columns: 1fr 2.4fr 0.5fr 0.5fr;
   -ms-grid-rows: 1fr 0px 0.7fr 0px 0.7fr 0px 0.7fr 0px 1fr;
   grid-template-rows: 1fr 0.7fr 0.7fr 0.7fr 1fr;
   gap: 0px 0px;
@@ -54,8 +53,8 @@
   display: grid;
   -ms-grid-columns: 1fr 0px 1fr 0px 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: 1.2fr 0px 1.2fr 0px 0.7fr;
-  grid-template-rows: 1.2fr 1.2fr 0.7fr;
+  -ms-grid-rows: 1.2fr 0px 1.2fr 0px 0.6fr;
+  grid-template-rows: 1fr 1fr 0.5fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas: "enemySide enemySide enemySide" "userSide userSide userSide" "userHand userHand userHand";

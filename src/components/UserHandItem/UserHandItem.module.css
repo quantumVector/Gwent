@@ -1,11 +1,9 @@
 .item {
   margin: 1px;
-  width: 72px;
-  height: 110px;
 }
 
 .img {
-  width: 72px;
+  width: 95px;
   cursor: pointer;
 }
 

@@ -1,5 +1,4 @@
 .slider {
-  border: 2px solid green;
   display: flex;
   align-items: center;
   justify-content: flex-satrt;
@@ -10,7 +9,7 @@
 
 .wrap {
   display: flex;
+  padding: 10px;
   height: 400px;
-  background-color: blue;
   overflow-x: scroll;
 }

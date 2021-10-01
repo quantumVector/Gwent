@@ -13,17 +13,17 @@
 }
 
 .face {
-  margin: 0;
-  width: 81px;
+  margin: 10px 0;
+  width: 90px;
   cursor: default;
 }
 
 .number {
   position: absolute;
-  left: 21px;
-  bottom: 35px;
+  left: 24px;
+  bottom: 48px;
   padding: 3px 10px;
-  font-size: 13px;
+  font-size: 20px;
   font-weight: bold;
   color: rgb(255, 196, 86);
   background-color: rgba(0, 0, 0, 0.637);
