@@ -32,7 +32,7 @@ const UserHandItem = ({ title, img, id, power, type, ability, selectCard, select
         alt={title}
         card-id={id}
         onDoubleClick={onSelectCard} />
-      <div className={cn(classes.power, { [classes.heroPower]: isHero })}>{!isSpecialCard && power}</div>
+      <div className={cn(classes.power, { [classes.heroPower]: isHero })}>{(!isSpecialCard && !plug) && power}</div>
     </div>
   )
 }
