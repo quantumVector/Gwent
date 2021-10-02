@@ -31,34 +31,3 @@ const SliderItem = (props) => {
 }
 
 export default SliderItem;
-
-
-
-
-/* const onSelectCard = e => {
-    const getRandomCardFromDeck = () => {
-      const randomInt = Math.floor(Math.random() * decks.userDeck.length);
-      return decks.userDeck[randomInt];
-    }
-
-    const randomCardFromDeck = getRandomCardFromDeck();
-
-    const modifier = (mutableObj, replaceableСardId, newCard) => mutableObj.filter((card) => {
-      if (card.id === replaceableСardId) {
-        card.title = newCard.title;
-        card.power = newCard.power;
-        card.type = newCard.type;
-        card.ability = newCard.ability;
-        card.img = newCard.img;
-        card.id = newCard.id;
-      }
-
-      return true;
-    })
-
-    const modifiedUserHand = modifier(decks.userHand, e.target.id, randomCardFromDeck);
-    const modifiedUserDeck = modifier(decks.userDeck, randomCardFromDeck.id, e.target);
-
-    updateUserCards(modifiedUserHand, modifiedUserDeck);
-    increaseNumberReplacedCards();
-  } */
