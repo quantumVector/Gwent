@@ -12,7 +12,7 @@
   grid-template-rows: 1fr 0.7fr 0.7fr 0.7fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "EnemyLeader battlefield enemyGraveyard enemyDeck" "enemyInfo battlefield selectedCard selectedCard" "weatherCards battlefield selectedCard selectedCard" "userInfo battlefield selectedCard selectedCard" "userLeader battlefield userGraveyard userDeck";
+  grid-template-areas: "EnemyLeader table enemyGraveyard enemyDeck" "enemyInfo table selectedCard selectedCard" "weatherCards table selectedCard selectedCard" "userInfo table selectedCard selectedCard" "userLeader table userGraveyard userDeck";
 }
 
 .EnemyLeader {
@@ -45,7 +45,7 @@
   grid-area: userLeader;
 }
 
-.battlefield {
+.table {
   -ms-grid-row: 1;
   -ms-grid-row-span: 9;
   -ms-grid-column: 3;
@@ -58,7 +58,7 @@
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas: "enemySide enemySide enemySide" "userSide userSide userSide" "userHand userHand userHand";
-  grid-area: battlefield;
+  grid-area: table;
 }
 
 .userHand {

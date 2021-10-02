@@ -5,7 +5,7 @@ import './App.css';
 import ModalContainer from './components/ModalContainer/ModalContainer';
 import Preloader from './components/Preloader/Preloader';
 import SelectedCardContainer from './components/SelectedCard/SelectedCardContainer';
-import SideContainer from './components/Side/SideContainer';
+import TableContainer from './components/Table/TableContainer';
 import DecksContainer from './components/UserDeck/DecksContainer';
 import UserHandContainer from './components/UserHand/UserHandContainer';
 import { deployGame } from './redux/appReducer';
@@ -28,9 +28,9 @@ class App extends Component {
         <div className="weatherCards"></div>
         <div className="userInfo"></div>
         <div className="userLeader"></div>
-        <div className="battlefield">
-          <SideContainer state={this.props.state} side='enemy' />
-          <SideContainer state={this.props.state} side='user' />
+        <div className="table">
+          <TableContainer state={this.props.state} side='enemy' />
+          <TableContainer state={this.props.state} side='user' />
           <UserHandContainer state={this.props.state} />
         </div>
         <div className="enemyGraveyard"></div>

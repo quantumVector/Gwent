@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { deleteUserHandCard } from '../../redux/decksReducer';
 import { playCard } from '../../redux/gameProcessReducer';
-import Side from './Side';
+import Table from './Table';
 
 const mapStateToProps = (state, side) => ({
   userMeleeCards: state.gameProcess.userMeleeCards,
@@ -28,4 +28,4 @@ const mapDispatchToProps = (dispatch) => {
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-)(Side);
+)(Table);
