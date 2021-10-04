@@ -7,7 +7,6 @@ const BLOCK_ALL_FIELDS = 'gwent/gameProcess/BLOCK_ALL_FIELDS';
 const SET_PLAYED_MELEE_CARD = 'gwent/gameProcess/SET_PLAYED_MELEE_CARD';
 const SET_PLAYED_RANGED_CARD = 'gwent/gameProcess/SET_PLAYED_RANGED_CARD';
 const SET_PLAYED_SIEGE_CARD = 'gwent/gameProcess/SET_PLAYED_SIEGE_CARD';
-const SET_POWER = 'gwent/gameProcess/SET_POWER';
 
 const initialState = {
   selectionMod: false,
@@ -78,32 +77,32 @@ const gameProcessReducer = (state = initialState, action) => {
     }
     case 'gwent/gameProcess/SET_PLAYED_MELEE_CARD': {
       const cloneCards = setCloneCards(state.userMeleeCards, action.card);
+      const sumPower = cloneCards.reduce((sum, current) => sum + current.power, 0);
 
       return {
         ...state,
         userMeleeCards: cloneCards,
+        userMeleePower: sumPower,
       }
     }
     case 'gwent/gameProcess/SET_PLAYED_RANGED_CARD': {
       const cloneCards = setCloneCards(state.userRangedCards, action.card);
+      const sumPower = cloneCards.reduce((sum, current) => sum + current.power, 0);
 
       return {
         ...state,
         userRangedCards: cloneCards,
+        userRangedPower: sumPower,
       }
     }
     case 'gwent/gameProcess/SET_PLAYED_SIEGE_CARD': {
       const cloneCards = setCloneCards(state.userSiegeCards, action.card);
+      const sumPower = cloneCards.reduce((sum, current) => sum + current.power, 0);
 
       return {
         ...state,
         userSiegeCards: cloneCards,
-      }
-    }
-    case 'gwent/gameProcess/SET_POWER': {
-      return {
-        ...state,
-        userMeleePower: 1,
+        userSiegePower: sumPower,
       }
     }
     default:
@@ -170,10 +169,6 @@ export const setPlayedRangedCard = (card) => (
 
 export const setPlayedSiegeCard = (card) => (
   { type: SET_PLAYED_SIEGE_CARD, card }
-)
-
-export const setPower = () => (
-  { type: SET_POWER }
 )
 
 export default gameProcessReducer;

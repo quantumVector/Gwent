@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { deleteUserHandCard } from '../../redux/decksReducer';
-import { playCard, setPower } from '../../redux/gameProcessReducer';
+import { playCard } from '../../redux/gameProcessReducer';
 import Table from './Table';
 
 const mapStateToProps = (state, side) => ({
@@ -25,9 +25,6 @@ const mapDispatchToProps = (dispatch) => {
     },
     deleteUserHandCard: (cardId) => {
       dispatch(deleteUserHandCard(cardId));
-    },
-    setPower: () => {
-      dispatch(setPower());
     }
   };
 }

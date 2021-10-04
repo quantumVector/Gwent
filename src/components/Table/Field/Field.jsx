@@ -8,7 +8,6 @@ const Field = ({ side, typeUnits, typeComponent, ...props }) => {
     if (unlockedField) {
       props.playCard(props.selectedCard, unlockedField);
       props.deleteUserHandCard(props.selectedCard.id);
-      props.setPower(props.setPower);
     }
   }
 
