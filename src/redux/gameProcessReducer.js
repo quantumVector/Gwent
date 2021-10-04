@@ -7,6 +7,7 @@ const BLOCK_ALL_FIELDS = 'gwent/gameProcess/BLOCK_ALL_FIELDS';
 const SET_PLAYED_MELEE_CARD = 'gwent/gameProcess/SET_PLAYED_MELEE_CARD';
 const SET_PLAYED_RANGED_CARD = 'gwent/gameProcess/SET_PLAYED_RANGED_CARD';
 const SET_PLAYED_SIEGE_CARD = 'gwent/gameProcess/SET_PLAYED_SIEGE_CARD';
+const SET_POWER = 'gwent/gameProcess/SET_POWER';
 
 const initialState = {
   selectionMod: false,
@@ -99,6 +100,12 @@ const gameProcessReducer = (state = initialState, action) => {
         userSiegeCards: cloneCards,
       }
     }
+    case 'gwent/gameProcess/SET_POWER': {
+      return {
+        ...state,
+        userMeleePower: 1,
+      }
+    }
     default:
       return state;
   }
@@ -163,6 +170,10 @@ export const setPlayedRangedCard = (card) => (
 
 export const setPlayedSiegeCard = (card) => (
   { type: SET_PLAYED_SIEGE_CARD, card }
+)
+
+export const setPower = () => (
+  { type: SET_POWER }
 )
 
 export default gameProcessReducer;

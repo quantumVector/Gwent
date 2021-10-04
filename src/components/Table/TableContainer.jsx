@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { deleteUserHandCard } from '../../redux/decksReducer';
-import { playCard } from '../../redux/gameProcessReducer';
+import { playCard, setPower } from '../../redux/gameProcessReducer';
 import Table from './Table';
 
 const mapStateToProps = (state, side) => ({
+  userMeleePower: state.gameProcess.userMeleePower,
+  userRangedPower: state.gameProcess.userRangedPower,
+  userSiegePower: state.gameProcess.userSiegePower,
   userMeleeCards: state.gameProcess.userMeleeCards,
   userRangedCards: state.gameProcess.userRangedCards,
   userSiegeCards: state.gameProcess.userSiegeCards,
@@ -22,6 +25,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     deleteUserHandCard: (cardId) => {
       dispatch(deleteUserHandCard(cardId));
+    },
+    setPower: () => {
+      dispatch(setPower());
     }
   };
 }
