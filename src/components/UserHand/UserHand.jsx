@@ -1,20 +1,26 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import UserHandItem from '../UserHandItem/UserHandItem';
 import classes from './UserHand.module.css';
 
-const UserHand = ({ userHand, selectCard, selectedCard, removeCard }) => {
+import { selectCard } from '../../redux/decksReducer';
+
+const UserHand = () => {
+  const dispatch = useDispatch();
+  const userHand = useSelector(({ decks }) => decks.userHand);
+  const selectedCard = useSelector(({ gameProcess }) => gameProcess.selectedCard);
+
   const cards = userHand.map(item => {
     return <UserHandItem
       key={item.id}
       title={item.title}
       img={item.img}
       id={item.id}
-      power = {item.power}
+      power={item.power}
       type={item.type}
       ability={item.ability}
-      selectCard={selectCard}
-      selectedCard={selectedCard}
-      removeCard={removeCard} />
+      selectCard={card => dispatch(selectCard(card))}
+      selectedCard={selectedCard} />
   })
 
   return (
