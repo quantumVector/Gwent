@@ -1,18 +1,22 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import classes from './Decks.module.css';
 
-const Decks = (props) => {
-  const side = props.side;
+const Decks = ({ side }) => {
+  const userDeckFace = useSelector(({ decks }) => decks.userDeckFace);
+  const userDeckNumber = useSelector(({ decks }) => decks.userDeckNumber);
+  const enemyDeckFace = useSelector(({ decks }) => decks.enemyDeckFace);
+  const enemyDeckNumber = useSelector(({ decks }) => decks.enemyDeckNumber);
 
   return (
     <>
       {side === 'enemy' &&
-        <Deck deckFace={props.enemyDeckFace}
-          deckNumber={props.enemyDeckNumber}
+        <Deck deckFace={enemyDeckFace}
+          deckNumber={enemyDeckNumber}
           className={classes.enemyDeck} />}
       {side === 'user' &&
-        <Deck deckFace={props.userDeckFace}
-          deckNumber={props.userDeckNumber}
+        <Deck deckFace={userDeckFace}
+          deckNumber={userDeckNumber}
           className={classes.userDeck} />}
     </>
   )

@@ -7,7 +7,7 @@ import Preloader from './components/Preloader/Preloader';
 import SelectedCardContainer from './components/SelectedCard/SelectedCardContainer';
 import TableContainer from './components/Table/TableContainer';
 import TotalPowerContainer from './components/TotalPower/TotalPowerContainer';
-import DecksContainer from './components/UserDeck/DecksContainer';
+import Decks from './components/UserDeck/Decks';
 import UserHand from './components/UserHand/UserHand';
 import { deployGame } from './redux/appReducer';
 import { hideModal } from './redux/modalReducer';
@@ -38,8 +38,8 @@ class App extends Component {
         </div>
         <div className="enemyGraveyard"></div>
         <div className="userGraveyard"></div>
-        <DecksContainer state={this.props.state} side='enemy' />
-        <DecksContainer state={this.props.state} side='user' />
+        <Decks side='enemy' />
+        <Decks side='user' />
         <SelectedCardContainer state={this.props.state} />
         <ModalContainer state={this.props.state} />
       </div>
