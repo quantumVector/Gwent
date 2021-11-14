@@ -5,7 +5,7 @@ import './App.css';
 import ModalContainer from './components/ModalContainer/ModalContainer';
 import Preloader from './components/Preloader/Preloader';
 import SelectedCardContainer from './components/SelectedCard/SelectedCardContainer';
-import TableContainer from './components/Table/TableContainer';
+import Table from './components/Table/Table';
 import TotalPowerContainer from './components/TotalPower/TotalPowerContainer';
 import Decks from './components/UserDeck/Decks';
 import UserHand from './components/UserHand/UserHand';
@@ -32,8 +32,8 @@ class App extends Component {
         </div>
         <div className="userLeader"></div>
         <div className="table">
-          <TableContainer state={this.props.state} side='enemy' />
-          <TableContainer state={this.props.state} side='user' />
+          <Table side='enemy' />
+          <Table side='user' />
           <UserHand />
         </div>
         <div className="enemyGraveyard"></div>
